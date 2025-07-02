@@ -43,7 +43,8 @@ export class AIService {
 
   static async analyzeCVMatch(jobDescription: string, cv: string): Promise<AnalysisResult> {
     await this.checkRateLimit();
-
+    console.log("AI_CONFIG", process.env.AUTHORIZATION_TOKEN);
+    console.log("AI_CONFIG.AUTHORIZATION_TOKEN", AI_CONFIG.AUTHORIZATION_TOKEN);
     const apiKey = AI_CONFIG.AUTHORIZATION_TOKEN;
     if (!apiKey) {
       throw new Error("AUTHORIZATION_TOKEN not configured. Please set it in your .env file.");

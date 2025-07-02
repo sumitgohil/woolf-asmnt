@@ -1,3 +1,7 @@
+import dotenv from "dotenv";
+
+dotenv.config();
+
 export const AI_CONFIG = {
   GEMINI_ENDPOINT: process.env.GEMINI_ENDPOINT || "https://intertest.woolf.engineering/invoke",
   AUTHORIZATION_TOKEN: process.env.AUTHORIZATION_TOKEN || "",
