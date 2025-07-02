@@ -1,6 +1,7 @@
 {
   "name": "woolf-cv",
   "version": "1.0.0",
+  "description": "Full-stack CV analysis application with tRPC and AI integration",
   "private": true,
   "workspaces": [
     "apps/*",
@@ -10,10 +11,26 @@
     "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
     "dev:server": "npm run dev --workspace=apps/server",
     "dev:client": "npm run dev --workspace=apps/client",
-    "build": "npm run build --workspaces"
+    "build": "npm run build --workspaces",
+    "start": "npm run start --workspace=apps/server",
+    "test": "./test-complete-app.sh",
+    "clean": "rm -rf node_modules apps/*/node_modules packages/*/node_modules",
+    "clean:build": "rm -rf apps/*/dist packages/*/dist"
   },
   "devDependencies": {
     "concurrently": "^8.2.2",
     "typescript": "^5.3.3"
-  }
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "cv-analysis",
+    "ai",
+    "trpc",
+    "react",
+    "typescript",
+    "woolf"
+  ],
+  "author": "Woolf Engineering Assessment"
 }
