@@ -6,3 +6,15 @@ build/
 *.log
 .DS_Store
 coverage/
+*.sh
+
+*.zip
+*.tar
+*.tar.gz
+*.tar.bz2
+*.tar.xz
+*.tar.lzma
+*.tar.lz
+*.tar.lz4
+*.tar.zst
+*.pdf
