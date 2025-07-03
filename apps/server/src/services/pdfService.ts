@@ -4,15 +4,19 @@ export class PDFService {
   static async extractText(pdfBuffer: Buffer): Promise<string> {
     try {
       const data = await pdf(pdfBuffer);
-      
+
       if (!data.text || data.text.trim().length === 0) {
-        throw new Error("PDF appears to be empty or contains no extractable text");
+        throw new Error(
+          "PDF appears to be empty or contains no extractable text"
+        );
       }
 
       return this.cleanText(data.text);
     } catch (error) {
       console.error("PDF extraction error:", error);
-      throw new Error(`Failed to extract text from PDF: ${error instanceof Error ? error.message : "Unknown error"}`);
+      throw new Error(
+        `Failed to extract text from PDF: ${error instanceof Error ? error.message : "Unknown error"}`
+      );
     }
   }
 
