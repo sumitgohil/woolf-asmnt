@@ -7,6 +7,7 @@
     "apps/*",
     "packages/*"
   ],
+  "type": "module",
   "scripts": {
     "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
     "dev:server": "npm run dev --workspace=apps/server",
@@ -14,11 +15,24 @@
     "build": "npm run build --workspaces",
     "start": "npm run start --workspace=apps/server",
     "test": "./test-complete-app.sh",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "setup": "./scripts/setup.sh",
+    "quality": "./scripts/lint-fix.sh",
+    "pre-push": "./scripts/pre-push.sh",
     "clean": "rm -rf node_modules apps/*/node_modules packages/*/node_modules",
     "clean:build": "rm -rf apps/*/dist packages/*/dist"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
     "concurrently": "^8.2.2",
+    "eslint": "^8.57.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
+    "prettier": "^3.1.1",
     "typescript": "^5.3.3"
   },
   "engines": {
