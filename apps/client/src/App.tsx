@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { Upload, FileText, Brain, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
+import {
+  Upload,
+  FileText,
+  Brain,
+  CheckCircle,
+  AlertCircle,
+  Loader2,
+} from "lucide-react";
 import { trpc } from "./utils/trpc";
 
 interface AnalysisResult {
@@ -16,9 +23,13 @@ interface AnalysisResult {
 }
 
 function App() {
-  const [jobDescriptionFile, setJobDescriptionFile] = useState<File | null>(null);
+  const [jobDescriptionFile, setJobDescriptionFile] = useState<File | null>(
+    null
+  );
   const [cvFile, setCvFile] = useState<File | null>(null);
-  const [analysisResult, setAnalysisResult] = useState<AnalysisResult | null>(null);
+  const [analysisResult, setAnalysisResult] = useState<AnalysisResult | null>(
+    null
+  );
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -41,12 +52,12 @@ function App() {
       setError("Please upload PDF files only");
       return;
     }
-    
+
     if (file.size > 10 * 1024 * 1024) {
       setError("File too large. Maximum size is 10MB");
       return;
     }
-    
+
     if (type === "jobDescription") {
       setJobDescriptionFile(file);
     } else {
@@ -112,7 +123,8 @@ function App() {
             CV Analysis Tool
           </h1>
           <p className="text-gray-600 text-lg">
-            Upload a job description and CV to get AI-powered analysis and recommendations
+            Upload a job description and CV to get AI-powered analysis and
+            recommendations
           </p>
         </div>
 
@@ -244,8 +256,8 @@ function App() {
                     analysisResult.alignment >= 80
                       ? "bg-green-600"
                       : analysisResult.alignment >= 60
-                      ? "bg-yellow-600"
-                      : "bg-red-600"
+                        ? "bg-yellow-600"
+                        : "bg-red-600"
                   }`}
                   style={{ width: `${analysisResult.alignment}%` }}
                 ></div>
@@ -305,11 +317,12 @@ function App() {
             >
               <h3 className="text-lg font-medium mb-2">Summary</h3>
               <p className="text-sm">{analysisResult.summary}</p>
-              
+
               {analysisResult.metadata && (
                 <div className="mt-3 text-xs text-gray-600">
                   <p>
-                    Processed {analysisResult.metadata.jobDescriptionLength} characters from job description,{" "}
+                    Processed {analysisResult.metadata.jobDescriptionLength}{" "}
+                    characters from job description,{" "}
                     {analysisResult.metadata.cvLength} characters from CV
                   </p>
                 </div>

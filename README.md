@@ -14,6 +14,7 @@ A full-stack application that analyzes CVs against job descriptions using AI, bu
 ## 🛠️ Tech Stack
 
 ### Backend
+
 - **Node.js** with TypeScript
 - **tRPC** for type-safe APIs
 - **Express** web framework
@@ -22,6 +23,7 @@ A full-stack application that analyzes CVs against job descriptions using AI, bu
 - **Zod** for validation
 
 ### Frontend
+
 - **React 18** with TypeScript
 - **Vite** for fast development
 - **Tailwind CSS** for styling
@@ -55,6 +57,7 @@ woolf-cv/
 ## 🔧 Quick Start
 
 ### Prerequisites
+
 - Node.js 18+
 - npm or yarn
 - PDF files for testing
@@ -62,7 +65,7 @@ woolf-cv/
 ### Installation
 
 ```
-git clone 
+git clone
 cd woolf-cv
 npm install
 ```
@@ -70,6 +73,7 @@ npm install
 ### Environment Setup
 
 Create `apps/server/.env`:
+
 ```
 PORT=4000
 NODE_ENV=development
@@ -85,12 +89,14 @@ npm run dev
 ```
 
 This starts both:
+
 - Backend server: http://localhost:4000
 - Frontend app: http://localhost:3000
 
 ## 📖 Usage
 
 ### Web Interface
+
 • Open http://localhost:3000
 • Upload a job description PDF
 • Upload a candidate CV PDF
@@ -100,16 +106,19 @@ This starts both:
 ### API Endpoints
 
 #### Health Check
+
 ```
 curl http://localhost:4000/health
 ```
 
 #### AI Service Status
+
 ```
 curl http://localhost:4000/trpc/checkAI
 ```
 
 #### Text Analysis
+
 ```
 curl -X POST http://localhost:4000/trpc/analyzeText \
   -H "Content-Type: application/json" \
@@ -119,11 +128,13 @@ curl -X POST http://localhost:4000/trpc/analyzeText \
 ## 🧪 Testing
 
 ### Automated Testing
+
 ```
 ./test-complete-app.sh
 ```
 
 ### Manual Testing
+
 • Start both servers
 • Upload test PDF files
 • Verify analysis results
@@ -134,6 +145,7 @@ curl -X POST http://localhost:4000/trpc/analyzeText \
 See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed deployment instructions.
 
 ### Quick Production Build
+
 ```
 npm run build
 cd apps/server && npm run start
@@ -161,14 +173,17 @@ npm run test         # Run automated tests
 ### Common Issues
 
 **401 Authentication Error**
+
 - Check your AUTHORIZATION_TOKEN in `.env`
 - Verify endpoint URL is correct
 
 **PDF Processing Fails**
+
 - Ensure PDFs contain extractable text
 - Check file size (max 10MB)
 
 **Frontend Not Loading**
+
 - Verify both servers are running
 - Check proxy configuration in `vite.config.ts`
 
