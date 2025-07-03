@@ -178,11 +178,3 @@ npm run test         # Run automated tests
 • Verify environment variables
 • Test API endpoints individually
 • Review network requests in browser DevTools
-
-## 📝 License
-
-This project is part of the Woolf Engineering Assessment.
-
----
-
-Built with ❤️ for Woolf Engineering Assessment
