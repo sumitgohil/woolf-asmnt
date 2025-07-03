@@ -12,8 +12,8 @@ export default [
         ecmaVersion: "latest",
         sourceType: "module",
         ecmaFeatures: {
-          jsx: true
-        }
+          jsx: true,
+        },
       },
       globals: {
         console: "readonly",
@@ -30,21 +30,21 @@ export default [
         window: "readonly",
         document: "readonly",
         File: "readonly",
-        FileReader: "readonly"
-      }
+        FileReader: "readonly",
+      },
     },
     plugins: {
-      "@typescript-eslint": tseslint
+      "@typescript-eslint": tseslint,
     },
     rules: {
       "no-undef": "off",
       "no-unused-vars": "off",
       "@typescript-eslint/no-unused-vars": "warn",
       "@typescript-eslint/no-explicit-any": "warn",
-      "no-console": "off"
-    }
+      "no-console": "off",
+    },
   },
   {
-    ignores: ["dist/", "node_modules/", "build/", "*.config.js"]
-  }
+    ignores: ["dist/", "node_modules/", "build/", "*.config.js"],
+  },
 ];
